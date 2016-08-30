@@ -22,7 +22,9 @@ Partial Class formGame
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnPlay = New System.Windows.Forms.Button()
+        Me.tmrMovement = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'btnPlay
@@ -37,6 +39,7 @@ Partial Class formGame
         Me.btnPlay.Name = "btnPlay"
         Me.btnPlay.Size = New System.Drawing.Size(47, 57)
         Me.btnPlay.TabIndex = 3
+        Me.btnPlay.TabStop = False
         Me.btnPlay.Text = "X"
         Me.btnPlay.UseVisualStyleBackColor = False
         '
@@ -48,6 +51,7 @@ Partial Class formGame
         Me.ClientSize = New System.Drawing.Size(1139, 708)
         Me.Controls.Add(Me.btnPlay)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Name = "formGame"
         Me.Text = "formGame"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -56,4 +60,5 @@ Partial Class formGame
     End Sub
 
     Friend WithEvents btnPlay As Button
+    Friend WithEvents tmrMovement As Timer
 End Class

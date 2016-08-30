@@ -49,6 +49,7 @@ Partial Class formMain
         Me.btnPlay.Name = "btnPlay"
         Me.btnPlay.Size = New System.Drawing.Size(563, 111)
         Me.btnPlay.TabIndex = 2
+        Me.btnPlay.TabStop = False
         Me.btnPlay.Text = "PLAY"
         Me.btnPlay.UseVisualStyleBackColor = False
         '

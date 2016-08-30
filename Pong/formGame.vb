@@ -15,4 +15,10 @@ Public Class formGame
         formMain.Show()
         Me.Hide()
     End Sub
+
+    Private Sub formGame_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
+        If e.KeyChar = ChrW(Keys.Down) Then
+            MsgBox("hi")
+        End If
+    End Sub
 End Class
