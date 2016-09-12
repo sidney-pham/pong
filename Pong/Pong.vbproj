@@ -72,20 +72,23 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\Game.Designer.vb">
+    <Compile Include="Forms\Game\Game.Designer.vb">
       <DependentUpon>Game.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Game.vb">
+    <Compile Include="Forms\Game\Game.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Menu.vb">
+    <Compile Include="Forms\Game\Game_Helpers.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Menu.Designer.vb">
+    <Compile Include="Forms\Menu\Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\Menu.Designer.vb">
       <DependentUpon>Menu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modules\modHelpers.vb" />
+    <Compile Include="Modules\modHelpers.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -103,10 +106,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="forms\Game.resx">
+    <EmbeddedResource Include="Forms\Game\Game.resx">
       <DependentUpon>Game.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Menu.resx">
+    <EmbeddedResource Include="Forms\Menu\Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
