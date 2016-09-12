@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class formMain
+Partial Class Menu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -53,7 +53,7 @@ Partial Class formMain
         Me.btnPlay.Text = "PLAY"
         Me.btnPlay.UseVisualStyleBackColor = False
         '
-        'formMain
+        'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -61,8 +61,9 @@ Partial Class formMain
         Me.ClientSize = New System.Drawing.Size(1155, 747)
         Me.Controls.Add(Me.btnPlay)
         Me.Controls.Add(Me.lblPong)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "formMain"
+        Me.Name = "Menu"
         Me.Text = "Pong"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)

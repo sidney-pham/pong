@@ -1,5 +1,5 @@
 ﻿Imports System
-Public Class formMain
+Public Class Menu
     Private Sub formMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         positionElements()
     End Sub
@@ -15,7 +15,7 @@ Public Class formMain
     End Sub
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
-        formGame.Show()
+        Game.Show()
         Me.Hide()
     End Sub
 End Class
