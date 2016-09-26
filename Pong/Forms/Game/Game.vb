@@ -9,6 +9,7 @@
     Dim randomAngle As Double
     Dim xVel As Single
     Dim yVel As Single
+    Dim score As Integer
 
     Dim cursorAngle As Double
 
@@ -21,16 +22,16 @@
         BALL_SIZE = 40
         CIRCLE_RADIUS = Me.Height / 2 * 0.9
         BACKGROUND_COLOR = Color.FromArgb(21, 18, 71)
+    End Sub
 
+    Private Sub create()
         ' Ball
-        speed = 5 ' Ball Speed
+        speed = 10 ' Ball Speed
         randomAngle = New Random().NextDouble() * 2 * Math.PI ' Random double between 0 and 2pi.
 
         xVel = Math.Cos(randomAngle) * speed
         yVel = Math.Sin(randomAngle) * speed
-    End Sub
 
-    Private Sub create()
         ' Set size of ball
         picBall.Width = BALL_SIZE
         picBall.Height = BALL_SIZE
@@ -42,11 +43,15 @@
         ' Position score
         lblScore.horizontallyCentre()
         lblScore.verticallyCentre()
+
+        score = 0
+        lblScore.Text = score
     End Sub
 
     Private Sub update()
-        drawPaddle()
         moveBall()
+        drawPaddle()
         checkCollisions()
+        checkGameEnd()
     End Sub
 End Class
