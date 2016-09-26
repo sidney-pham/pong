@@ -6,7 +6,7 @@
     Dim CIRCLE_RADIUS As Integer
     Dim BACKGROUND_COLOR As Color
     Dim speed As Single
-    Dim rndInst As Random
+    Dim randomAngle As Double
     Dim xVel As Single
     Dim yVel As Single
 
@@ -24,9 +24,10 @@
 
         ' Ball
         speed = 5 ' Ball Speed
-        rndInst = New Random() ' Random instance
-        xVel = Math.Cos(rndInst.Next(5, 10)) * speed
-        yVel = Math.Sin(rndInst.Next(5, 10)) * speed
+        randomAngle = New Random().NextDouble() * 2 * Math.PI ' Random double between 0 and 2pi.
+
+        xVel = Math.Cos(randomAngle) * speed
+        yVel = Math.Sin(randomAngle) * speed
     End Sub
 
     Private Sub create()
