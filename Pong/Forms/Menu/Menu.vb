@@ -17,10 +17,18 @@ Public Class Menu
         ' btnPlay
         btnPlay.horizontallyCentre()
         btnPlay.placeBelow(lblPong, 160)
+
+        ' btnExit
+        btnExit.Left = 40
+        btnExit.Top = Me.Height - btnExit.Height - 40
     End Sub
 
     Private Sub btnPlay_Click(sender As Object, e As EventArgs) Handles btnPlay.Click
         Game.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
     End Sub
 End Class

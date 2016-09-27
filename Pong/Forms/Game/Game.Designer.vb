@@ -28,6 +28,7 @@ Partial Class Game
         Me.tmrGame = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
         Me.picBall = New System.Windows.Forms.PictureBox()
+        Me.btnInvisible = New System.Windows.Forms.Button()
         CType(Me.picBall, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,11 +55,11 @@ Partial Class Game
         'lblScore
         '
         Me.lblScore.AutoSize = True
-        Me.lblScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblScore.Font = New System.Drawing.Font("Microsoft YaHei UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblScore.ForeColor = System.Drawing.Color.White
         Me.lblScore.Location = New System.Drawing.Point(596, 147)
         Me.lblScore.Name = "lblScore"
-        Me.lblScore.Size = New System.Drawing.Size(36, 37)
+        Me.lblScore.Size = New System.Drawing.Size(114, 128)
         Me.lblScore.TabIndex = 4
         Me.lblScore.Text = "0"
         '
@@ -72,12 +73,22 @@ Partial Class Game
         Me.picBall.TabIndex = 5
         Me.picBall.TabStop = False
         '
+        'btnInvisible
+        '
+        Me.btnInvisible.Location = New System.Drawing.Point(59, 147)
+        Me.btnInvisible.Name = "btnInvisible"
+        Me.btnInvisible.Size = New System.Drawing.Size(75, 23)
+        Me.btnInvisible.TabIndex = 6
+        Me.btnInvisible.Text = "Button1"
+        Me.btnInvisible.UseVisualStyleBackColor = True
+        '
         'Game
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1139, 708)
+        Me.Controls.Add(Me.btnInvisible)
         Me.Controls.Add(Me.picBall)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.btnPause)
@@ -96,4 +107,5 @@ Partial Class Game
     Friend WithEvents picBall As PictureBox
     Public WithEvents tmrGame As Timer
     Public WithEvents btnPause As Button
+    Friend WithEvents btnInvisible As Button
 End Class

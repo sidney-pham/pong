@@ -25,6 +25,7 @@ Partial Class Menu
         Me.lblPong = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
         Me.lblDescription = New System.Windows.Forms.Label()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lblPong
@@ -65,12 +66,29 @@ Partial Class Menu
         Me.lblDescription.TabIndex = 3
         Me.lblDescription.Text = "A REMADE RETRO GAME"
         '
+        'btnExit
+        '
+        Me.btnExit.BackColor = System.Drawing.Color.Brown
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.ForeColor = System.Drawing.Color.White
+        Me.btnExit.Location = New System.Drawing.Point(26, 324)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 75)
+        Me.btnExit.TabIndex = 6
+        Me.btnExit.TabStop = False
+        Me.btnExit.Text = "🏠"
+        Me.btnExit.UseVisualStyleBackColor = False
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1155, 747)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblDescription)
         Me.Controls.Add(Me.btnPlay)
         Me.Controls.Add(Me.lblPong)
@@ -87,4 +105,5 @@ Partial Class Menu
     Friend WithEvents lblPong As Label
     Friend WithEvents btnPlay As Button
     Friend WithEvents lblDescription As Label
+    Friend WithEvents btnExit As Button
 End Class

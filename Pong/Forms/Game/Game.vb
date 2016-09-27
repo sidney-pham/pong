@@ -63,11 +63,16 @@
         checkGameEnd()
     End Sub
 
-    Private Sub btnExit_MouseEnter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
+    Private Sub btnPause_MouseEnter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
         btnPause.ForeColor = Color.Orange
     End Sub
 
-    Private Sub btnExit_MouseLeave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
+    Private Sub btnPause_MouseLeave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
         btnPause.ForeColor = Color.FromArgb(255, 202, 82)
+    End Sub
+
+    Private Sub btnInvisible_Click(sender As Object, e As EventArgs) Handles btnInvisible.Click
+        Pong.Menu.Show()
+        Me.Close()
     End Sub
 End Class

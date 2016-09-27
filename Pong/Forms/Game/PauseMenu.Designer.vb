@@ -24,6 +24,7 @@ Partial Class PauseMenu
     Private Sub InitializeComponent()
         Me.btnResume = New System.Windows.Forms.Button()
         Me.lblPaused = New System.Windows.Forms.Label()
+        Me.btnHome = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnResume
@@ -53,11 +54,28 @@ Partial Class PauseMenu
         Me.lblPaused.TabIndex = 4
         Me.lblPaused.Text = "PAUSED"
         '
+        'btnHome
+        '
+        Me.btnHome.BackColor = System.Drawing.Color.Brown
+        Me.btnHome.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.btnHome.FlatAppearance.BorderSize = 0
+        Me.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnHome.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHome.ForeColor = System.Drawing.Color.White
+        Me.btnHome.Location = New System.Drawing.Point(23, 319)
+        Me.btnHome.Name = "btnHome"
+        Me.btnHome.Size = New System.Drawing.Size(75, 75)
+        Me.btnHome.TabIndex = 5
+        Me.btnHome.TabStop = False
+        Me.btnHome.Text = "🏠"
+        Me.btnHome.UseVisualStyleBackColor = False
+        '
         'PauseMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(769, 406)
+        Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.lblPaused)
         Me.Controls.Add(Me.btnResume)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -71,4 +89,5 @@ Partial Class PauseMenu
 
     Friend WithEvents btnResume As Button
     Friend WithEvents lblPaused As Label
+    Friend WithEvents btnHome As Button
 End Class

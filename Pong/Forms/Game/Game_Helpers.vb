@@ -3,8 +3,6 @@
 ' The really boring stuff.
 Partial Public Class Game
     Private Sub btnPause_Click(sender As Object, e As EventArgs) Handles btnPause.Click
-        'Pong.Menu.Show()
-        'Me.Close()
         tmrGame.Stop()
         btnPause.Hide()
         OpaqueOverlay.Show()
