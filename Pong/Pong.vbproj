@@ -81,6 +81,18 @@
     <Compile Include="Forms\Game\Game_Helpers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Game\OpaqueOverlay.Designer.vb">
+      <DependentUpon>OpaqueOverlay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Game\OpaqueOverlay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Game\PauseMenu.Designer.vb">
+      <DependentUpon>PauseMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Game\PauseMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Menu\Menu.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Game\Game.resx">
       <DependentUpon>Game.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Game\OpaqueOverlay.resx">
+      <DependentUpon>OpaqueOverlay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Game\PauseMenu.resx">
+      <DependentUpon>PauseMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu\Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>

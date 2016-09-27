@@ -24,28 +24,27 @@ Partial Class Game
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Game))
-        Me.btnExit = New System.Windows.Forms.Button()
+        Me.btnPause = New System.Windows.Forms.Button()
         Me.tmrGame = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
         Me.picBall = New System.Windows.Forms.PictureBox()
         CType(Me.picBall, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnExit
+        'btnPause
         '
-        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(96, Byte), Integer), CType(CType(14, Byte), Integer))
-        Me.btnExit.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.btnExit.FlatAppearance.BorderSize = 0
-        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.ForeColor = System.Drawing.Color.White
-        Me.btnExit.Location = New System.Drawing.Point(27, 12)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(64, 58)
-        Me.btnExit.TabIndex = 3
-        Me.btnExit.TabStop = False
-        Me.btnExit.Text = "X"
-        Me.btnExit.UseVisualStyleBackColor = False
+        Me.btnPause.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.btnPause.FlatAppearance.BorderSize = 0
+        Me.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPause.Font = New System.Drawing.Font("Century Gothic", 35.0!, System.Drawing.FontStyle.Bold)
+        Me.btnPause.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(202, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.btnPause.Location = New System.Drawing.Point(27, 12)
+        Me.btnPause.Name = "btnPause"
+        Me.btnPause.Size = New System.Drawing.Size(93, 107)
+        Me.btnPause.TabIndex = 3
+        Me.btnPause.TabStop = False
+        Me.btnPause.Text = "❙❙"
+        Me.btnPause.UseVisualStyleBackColor = False
         '
         'tmrGame
         '
@@ -56,7 +55,7 @@ Partial Class Game
         '
         Me.lblScore.AutoSize = True
         Me.lblScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblScore.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblScore.ForeColor = System.Drawing.Color.White
         Me.lblScore.Location = New System.Drawing.Point(596, 147)
         Me.lblScore.Name = "lblScore"
         Me.lblScore.Size = New System.Drawing.Size(36, 37)
@@ -81,7 +80,7 @@ Partial Class Game
         Me.ClientSize = New System.Drawing.Size(1139, 708)
         Me.Controls.Add(Me.picBall)
         Me.Controls.Add(Me.lblScore)
-        Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.btnPause)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
@@ -93,9 +92,8 @@ Partial Class Game
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnExit As Button
-    Friend WithEvents tmrGame As Timer
     Friend WithEvents lblScore As Label
     Friend WithEvents picBall As PictureBox
+    Public WithEvents tmrGame As Timer
+    Public WithEvents btnPause As Button
 End Class

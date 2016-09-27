@@ -24,6 +24,7 @@ Partial Class Menu
     Private Sub InitializeComponent()
         Me.lblPong = New System.Windows.Forms.Label()
         Me.btnPlay = New System.Windows.Forms.Button()
+        Me.lblDescription = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblPong
@@ -33,19 +34,19 @@ Partial Class Menu
         Me.lblPong.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblPong.Location = New System.Drawing.Point(259, 86)
         Me.lblPong.Name = "lblPong"
-        Me.lblPong.Size = New System.Drawing.Size(334, 112)
+        Me.lblPong.Size = New System.Drawing.Size(824, 112)
         Me.lblPong.TabIndex = 1
-        Me.lblPong.Text = "PONG"
+        Me.lblPong.Text = "CIRCULAR PONG"
         '
         'btnPlay
         '
-        Me.btnPlay.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(96, Byte), Integer), CType(CType(14, Byte), Integer))
+        Me.btnPlay.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(42, Byte), Integer))
         Me.btnPlay.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.btnPlay.FlatAppearance.BorderSize = 0
         Me.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPlay.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPlay.ForeColor = System.Drawing.Color.White
-        Me.btnPlay.Location = New System.Drawing.Point(143, 245)
+        Me.btnPlay.Location = New System.Drawing.Point(141, 324)
         Me.btnPlay.Name = "btnPlay"
         Me.btnPlay.Size = New System.Drawing.Size(563, 111)
         Me.btnPlay.TabIndex = 2
@@ -53,12 +54,24 @@ Partial Class Menu
         Me.btnPlay.Text = "PLAY"
         Me.btnPlay.UseVisualStyleBackColor = False
         '
+        'lblDescription
+        '
+        Me.lblDescription.AutoSize = True
+        Me.lblDescription.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDescription.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblDescription.Location = New System.Drawing.Point(347, 214)
+        Me.lblDescription.Name = "lblDescription"
+        Me.lblDescription.Size = New System.Drawing.Size(389, 39)
+        Me.lblDescription.TabIndex = 3
+        Me.lblDescription.Text = "A REMADE RETRO GAME"
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1155, 747)
+        Me.Controls.Add(Me.lblDescription)
         Me.Controls.Add(Me.btnPlay)
         Me.Controls.Add(Me.lblPong)
         Me.DoubleBuffered = True
@@ -73,4 +86,5 @@ Partial Class Menu
 
     Friend WithEvents lblPong As Label
     Friend WithEvents btnPlay As Button
+    Friend WithEvents lblDescription As Label
 End Class

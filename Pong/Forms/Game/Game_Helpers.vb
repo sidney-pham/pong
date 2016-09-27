@@ -2,9 +2,16 @@
 
 ' The really boring stuff.
 Partial Public Class Game
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Pong.Menu.Show()
-        Me.Close()
+    Private Sub btnPause_Click(sender As Object, e As EventArgs) Handles btnPause.Click
+        'Pong.Menu.Show()
+        'Me.Close()
+        tmrGame.Stop()
+        btnPause.Hide()
+        OpaqueOverlay.Show()
+        PauseMenu.ShowDialog()
+        OpaqueOverlay.Close()
+        tmrGame.Start()
+        btnPause.Show()
     End Sub
 
     Private Sub Game_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -42,6 +49,7 @@ Partial Public Class Game
 
             score = score + 1
             lblScore.Text = score
+            lblScore.horizontallyCentre()
         End If
     End Sub
 
@@ -56,10 +64,10 @@ Partial Public Class Game
         Dim startAngle As Integer = cursorAngle / (2 * Math.PI) * 360 - PADDLE_SIZE / 2
 
         ' Draw a white circle
-        e.Graphics.DrawEllipse(New Pen(Color.White, 1), rect)
+        e.Graphics.DrawEllipse(New Pen(CIRCLE_COLOR, 1), rect)
 
         ' Actually draw the paddle.
-        e.Graphics.DrawArc(New Pen(Color.Orange, 10), rect, startAngle, PADDLE_SIZE)
+        e.Graphics.DrawArc(New Pen(PADDLE_COLOR, 20), rect, startAngle, PADDLE_SIZE)
     End Sub
 
     Private Function getContactPoint() As Point
@@ -72,7 +80,7 @@ Partial Public Class Game
 
     Private Sub Game_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Escape Then
-            btnExit.PerformClick()
+            btnPause.PerformClick()
         End If
     End Sub
 End Class

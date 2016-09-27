@@ -5,6 +5,8 @@
     Dim BALL_SIZE As Integer
     Dim CIRCLE_RADIUS As Integer
     Dim BACKGROUND_COLOR As Color
+    Dim PADDLE_COLOR As Color
+    Dim CIRCLE_COLOR As Color
     Dim speed As Single
     Dim randomAngle As Double
     Dim xVel As Single
@@ -21,7 +23,13 @@
         PADDLE_SIZE = 40
         BALL_SIZE = 40
         CIRCLE_RADIUS = Me.Height / 2 * 0.9
-        BACKGROUND_COLOR = Color.FromArgb(21, 18, 71)
+        BACKGROUND_COLOR = Color.FromArgb(2, 37, 85)
+        PADDLE_COLOR = Color.FromArgb(99, 155, 42)
+        CIRCLE_COLOR = Color.White
+        '79, 133, 208
+
+        Me.BackColor = BACKGROUND_COLOR
+        btnPause.Location = New Point(30, 30)
     End Sub
 
     Private Sub create()
@@ -53,5 +61,13 @@
         drawPaddle()
         checkCollisions()
         checkGameEnd()
+    End Sub
+
+    Private Sub btnExit_MouseEnter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
+        btnPause.ForeColor = Color.Orange
+    End Sub
+
+    Private Sub btnExit_MouseLeave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
+        btnPause.ForeColor = Color.FromArgb(255, 202, 82)
     End Sub
 End Class
