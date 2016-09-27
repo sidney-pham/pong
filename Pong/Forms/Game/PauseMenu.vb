@@ -36,14 +36,15 @@
     End Sub
 
     Private Sub PauseMenu_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyValue = Keys.Space Or e.KeyValue = Keys.Enter Then
+        If e.KeyValue = Keys.Space Or e.KeyValue = Keys.Enter Or e.KeyValue = Keys.Escape Then
             btnResume.PerformClick()
         End If
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
         If MessageBox.Show("All progress will be lost. Are you sure?", "Pong", MessageBoxButtons.YesNo) = DialogResult.Yes Then
-            Game.btnInvisible.PerformClick()
+            'Game.btnInvisible.PerformClick()
+            GlobalVariables.closeForm = True
             Me.Close()
         End If
     End Sub

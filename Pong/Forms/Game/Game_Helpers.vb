@@ -8,8 +8,16 @@ Partial Public Class Game
         OpaqueOverlay.Show()
         PauseMenu.ShowDialog()
         OpaqueOverlay.Close()
-        tmrGame.Start()
-        btnPause.Show()
+        ' I really don't know why it doesn't work without global variables, but it doesn't.
+        ' I'm disgusted by this.
+        If GlobalVariables.closeForm Then
+            Pong.Menu.Show()
+            GlobalVariables.closeForm = False
+            Me.Close()
+        Else
+            tmrGame.Start()
+            btnPause.Show()
+        End If
     End Sub
 
     Private Sub Game_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -71,7 +71,7 @@
         btnPause.ForeColor = Color.FromArgb(255, 202, 82)
     End Sub
 
-    Private Sub btnInvisible_Click(sender As Object, e As EventArgs) Handles btnInvisible.Click
+    Private Sub btnInvisible_Click(sender As Object, e As EventArgs)
         Pong.Menu.Show()
         Me.Close()
     End Sub
