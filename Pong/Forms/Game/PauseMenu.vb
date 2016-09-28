@@ -39,6 +39,13 @@
         If e.KeyValue = Keys.Space Or e.KeyValue = Keys.Enter Or e.KeyValue = Keys.Escape Then
             btnResume.PerformClick()
         End If
+
+        If e.Alt And e.KeyValue = Keys.F4 Then
+            e.SuppressKeyPress = True
+            GlobalVariables.closeForm = True
+            GlobalVariables.closeProgram = True
+            Me.Close()
+        End If
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click

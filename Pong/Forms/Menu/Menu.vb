@@ -31,4 +31,12 @@ Public Class Menu
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
+
+    Private Sub Menu_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible Then
+            If GlobalVariables.closeProgram Then
+                Me.Close()
+            End If
+        End If
+    End Sub
 End Class

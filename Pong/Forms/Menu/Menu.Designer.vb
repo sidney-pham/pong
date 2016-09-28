@@ -79,7 +79,7 @@ Partial Class Menu
         Me.btnExit.Size = New System.Drawing.Size(75, 75)
         Me.btnExit.TabIndex = 6
         Me.btnExit.TabStop = False
-        Me.btnExit.Text = "🏠"
+        Me.btnExit.Text = "×"
         Me.btnExit.UseVisualStyleBackColor = False
         '
         'Menu
