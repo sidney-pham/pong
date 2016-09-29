@@ -1,4 +1,11 @@
-﻿Partial Public Class Game
+﻿' KNOWN BUG(S):
+' - You can 'trap' the ball in the paddle with the right timing, and it 'organically manifests' itself
+' through normal gameplay, unfortunately. I'm not going to bother to fix this, because VB provides
+' a terrible mechanism for collision detection which is already unreliable enough, so it's 
+' not worth the effort to fix a small bug in an already buggy system.
+
+
+Partial Public Class Game
     Public CENTRE_X As Double
     Public CENTRE_Y As Double
     Dim PADDLE_SIZE As Integer
