@@ -28,6 +28,11 @@ Partial Class Game
         Me.tmrGame = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
         Me.picBall = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblGameOver = New System.Windows.Forms.Label()
+        Me.lblGameOverScore = New System.Windows.Forms.Label()
+        Me.btnPlayAgain = New System.Windows.Forms.Button()
+        Me.btnHome = New System.Windows.Forms.Button()
         CType(Me.picBall, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -72,12 +77,79 @@ Partial Class Game
         Me.picBall.TabIndex = 5
         Me.picBall.TabStop = False
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Location = New System.Drawing.Point(61, 126)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(3, 3)
+        Me.Panel1.TabIndex = 6
+        '
+        'lblGameOver
+        '
+        Me.lblGameOver.AutoSize = True
+        Me.lblGameOver.Font = New System.Drawing.Font("Microsoft YaHei UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGameOver.ForeColor = System.Drawing.Color.White
+        Me.lblGameOver.Location = New System.Drawing.Point(21, 126)
+        Me.lblGameOver.Name = "lblGameOver"
+        Me.lblGameOver.Size = New System.Drawing.Size(593, 128)
+        Me.lblGameOver.TabIndex = 7
+        Me.lblGameOver.Text = "Game Over"
+        '
+        'lblGameOverScore
+        '
+        Me.lblGameOverScore.AutoSize = True
+        Me.lblGameOverScore.Font = New System.Drawing.Font("Microsoft YaHei UI", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGameOverScore.ForeColor = System.Drawing.Color.White
+        Me.lblGameOverScore.Location = New System.Drawing.Point(75, 266)
+        Me.lblGameOverScore.Name = "lblGameOverScore"
+        Me.lblGameOverScore.Size = New System.Drawing.Size(237, 62)
+        Me.lblGameOverScore.TabIndex = 8
+        Me.lblGameOverScore.Text = "Score: 24"
+        '
+        'btnPlayAgain
+        '
+        Me.btnPlayAgain.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(42, Byte), Integer))
+        Me.btnPlayAgain.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.btnPlayAgain.FlatAppearance.BorderSize = 0
+        Me.btnPlayAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPlayAgain.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPlayAgain.ForeColor = System.Drawing.Color.White
+        Me.btnPlayAgain.Location = New System.Drawing.Point(320, 165)
+        Me.btnPlayAgain.Name = "btnPlayAgain"
+        Me.btnPlayAgain.Size = New System.Drawing.Size(231, 67)
+        Me.btnPlayAgain.TabIndex = 9
+        Me.btnPlayAgain.TabStop = False
+        Me.btnPlayAgain.Text = "Play Again"
+        Me.btnPlayAgain.UseVisualStyleBackColor = False
+        '
+        'btnHome
+        '
+        Me.btnHome.BackColor = System.Drawing.Color.Brown
+        Me.btnHome.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.btnHome.FlatAppearance.BorderSize = 0
+        Me.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnHome.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHome.ForeColor = System.Drawing.Color.White
+        Me.btnHome.Location = New System.Drawing.Point(596, 147)
+        Me.btnHome.Name = "btnHome"
+        Me.btnHome.Size = New System.Drawing.Size(75, 75)
+        Me.btnHome.TabIndex = 10
+        Me.btnHome.TabStop = False
+        Me.btnHome.Text = "🏠"
+        Me.btnHome.UseVisualStyleBackColor = False
+        '
         'Game
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(71, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1139, 708)
+        Me.Controls.Add(Me.btnHome)
+        Me.Controls.Add(Me.btnPlayAgain)
+        Me.Controls.Add(Me.lblGameOverScore)
+        Me.Controls.Add(Me.lblGameOver)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.picBall)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.btnPause)
@@ -96,4 +168,9 @@ Partial Class Game
     Friend WithEvents picBall As PictureBox
     Public WithEvents tmrGame As Timer
     Public WithEvents btnPause As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents lblGameOver As Label
+    Friend WithEvents lblGameOverScore As Label
+    Friend WithEvents btnPlayAgain As Button
+    Friend WithEvents btnHome As Button
 End Class

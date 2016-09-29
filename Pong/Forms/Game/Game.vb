@@ -2,6 +2,7 @@
     Public CENTRE_X As Double
     Public CENTRE_Y As Double
     Dim PADDLE_SIZE As Integer
+    Dim PADDLE_WIDTH As Integer
     Dim BALL_SIZE As Integer
     Dim CIRCLE_RADIUS As Integer
     Dim BACKGROUND_COLOR As Color
@@ -12,6 +13,7 @@
     Dim xVel As Single
     Dim yVel As Single
     Dim score As Integer
+    Dim gameOver As Boolean = False
 
     Dim cursorAngle As Double
 
@@ -21,6 +23,7 @@
         CENTRE_X = Me.Width / 2
         CENTRE_Y = Me.Height / 2
         PADDLE_SIZE = 40
+        PADDLE_WIDTH = 15
         BALL_SIZE = 40
         CIRCLE_RADIUS = Me.Height / 2 * 0.9
         BACKGROUND_COLOR = Color.FromArgb(2, 37, 85)
@@ -52,8 +55,36 @@
         lblScore.horizontallyCentre()
         lblScore.verticallyCentre()
 
+        ' Position game over screen
+        Const AGAIN_HOME_MARGIN = 20
+
+        lblGameOver.horizontallyCentre()
+        lblGameOver.Top = Me.Height / 2 - lblGameOver.Height / 2 - 100
+
+        lblGameOverScore.horizontallyCentre()
+        lblGameOverScore.Top = Me.Height / 2 - lblGameOverScore.Height / 2
+
+        btnPlayAgain.Left = Me.Width / 2 - (btnPlayAgain.Width + btnHome.Width + AGAIN_HOME_MARGIN) / 2
+        btnPlayAgain.Top = Me.Height / 2 - btnPlayAgain.Height / 2 + 100
+
+        btnHome.Height = btnPlayAgain.Height
+        btnHome.Width = btnHome.Height
+        btnHome.placeRight(btnPlayAgain, AGAIN_HOME_MARGIN)
+        btnHome.Top = btnPlayAgain.Top
+
+        ' Hide game over screen at first
+        lblGameOver.Hide()
+        lblGameOverScore.Hide()
+        btnPlayAgain.Hide()
+        btnHome.Hide()
+
+        btnPause.Show()
+
         score = 0
         lblScore.Text = score
+        lblScore.Show()
+
+        gameOver = False
     End Sub
 
     Private Sub update()
@@ -61,18 +92,5 @@
         drawPaddle()
         checkCollisions()
         checkGameEnd()
-    End Sub
-
-    Private Sub btnPause_MouseEnter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
-        btnPause.ForeColor = Color.Orange
-    End Sub
-
-    Private Sub btnPause_MouseLeave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
-        btnPause.ForeColor = Color.FromArgb(255, 202, 82)
-    End Sub
-
-    Private Sub btnInvisible_Click(sender As Object, e As EventArgs)
-        Pong.Menu.Show()
-        Me.Close()
     End Sub
 End Class

@@ -39,4 +39,14 @@ Public Class Menu
             End If
         End If
     End Sub
+
+    Private Sub Menu_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyValue = Keys.Space Or e.KeyValue = Keys.Enter Then
+            btnPlay.PerformClick()
+        End If
+
+        If e.KeyValue = Keys.Escape Then
+            btnExit.PerformClick()
+        End If
+    End Sub
 End Class

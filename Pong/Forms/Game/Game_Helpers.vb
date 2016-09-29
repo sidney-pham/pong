@@ -32,8 +32,6 @@ Partial Public Class Game
     Private Sub drawPaddle()
         cursorAngle = getMouseAngle(Cursor.Position())
         Me.Refresh()
-        'pnlPaddle.Update()
-        'formPaddle.Refresh()
     End Sub
 
     Private Sub moveBall()
@@ -47,6 +45,8 @@ Partial Public Class Game
         Dim rect As New Rectangle(CENTRE_X - CIRCLE_RADIUS, CENTRE_Y - CIRCLE_RADIUS, CIRCLE_RADIUS * 2, CIRCLE_RADIUS * 2)
         Dim startAngle As Integer = cursorAngle / (2 * Math.PI) * 360 - PADDLE_SIZE / 2
         path.AddArc(rect, startAngle, PADDLE_SIZE)
+
+        ' Check if the paddle is in contact with the ball
         If path.IsVisible(point) Then
             Dim centre As New Point(Math.Cos(cursorAngle) * CIRCLE_RADIUS, Math.Sin(cursorAngle) * CIRCLE_RADIUS)
             Dim distanceFromCentre As Double = Math.Sqrt((centre.X - point.X) ^ 2 + (centre.Y - point.Y) ^ 2)
@@ -61,8 +61,20 @@ Partial Public Class Game
 
     Private Sub checkGameEnd()
         If picBall.Location.X < 0 Or picBall.Location.Y < 0 Or picBall.Location.X > Me.Width - picBall.Width Or picBall.Location.Y > Me.Height - picBall.Height Then
-            create()
+            endGame()
         End If
+    End Sub
+
+    Private Sub endGame()
+        gameOver = True
+        lblScore.Hide()
+        lblGameOver.Show()
+        lblGameOverScore.Text = "Score: " & score
+        lblGameOverScore.Show()
+        btnPlayAgain.Show()
+        btnHome.Show()
+
+        btnPause.Hide()
     End Sub
 
     Private Sub Game_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
@@ -73,20 +85,54 @@ Partial Public Class Game
         e.Graphics.DrawEllipse(New Pen(CIRCLE_COLOR, 1), rect)
 
         ' Actually draw the paddle.
-        e.Graphics.DrawArc(New Pen(PADDLE_COLOR, 20), rect, startAngle, PADDLE_SIZE)
+        e.Graphics.DrawArc(New Pen(PADDLE_COLOR, PADDLE_WIDTH), rect, startAngle, PADDLE_SIZE)
+
+        'Draw dot
+        'e.Graphics.FillRectangle(Brushes.White, getContactPoint().X, getContactPoint().Y, 20, 20)
+        'e.Graphics.DrawEllipse(New Pen(Color.White, 8), getContactPoint().X, getContactPoint().Y, 2, 2)
+        Panel1.Location = getContactPoint()
     End Sub
 
     Private Function getContactPoint() As Point
         Dim ballRadius As Double = picBall.Width / 2
         Dim centre As New Point(picBall.Left + ballRadius, picBall.Top + ballRadius)
-        centre.X += Math.Cos(cursorAngle)
-        centre.Y += Math.Sin(cursorAngle)
-        Return centre
+        Dim contactPoint As Point
+
+        contactPoint = New Point(centre.X + Math.Cos(cursorAngle) * ballRadius, centre.Y + Math.Sin(cursorAngle) * ballRadius)
+
+        Return contactPoint
     End Function
 
     Private Sub Game_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyValue = Keys.Escape Then
-            btnPause.PerformClick()
+        If gameOver Then
+            If e.KeyValue = Keys.Enter Or e.KeyValue = Keys.Space Then
+                create()
+            End If
+
+            If e.KeyValue = Keys.Escape Then
+                btnHome.PerformClick()
+            End If
+        Else
+            If e.KeyValue = Keys.Escape Then
+                btnPause.PerformClick()
+            End If
         End If
+    End Sub
+
+    Private Sub btnPause_MouseEnter(sender As Object, e As EventArgs) Handles btnPause.MouseEnter
+        btnPause.ForeColor = Color.Orange
+    End Sub
+
+    Private Sub btnPause_MouseLeave(sender As Object, e As EventArgs) Handles btnPause.MouseLeave
+        btnPause.ForeColor = Color.FromArgb(255, 202, 82)
+    End Sub
+
+    Private Sub btnPlayAgain_Click(sender As Object, e As EventArgs) Handles btnPlayAgain.Click
+        create()
+    End Sub
+
+    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
+        Pong.Menu.Show()
+        Me.Close()
     End Sub
 End Class
