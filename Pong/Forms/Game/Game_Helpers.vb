@@ -68,9 +68,12 @@ Partial Public Class Game
             newAngle = newAngle + randomReboundFactor
 
             ' Set velocity of the ball based on newAngle and speed.
-            xVel = Math.Cos(newAngle) * speed
-            yVel = Math.Sin(newAngle) * speed
+            xVel = Math.Cos(newAngle) * SPEED
+            yVel = Math.Sin(newAngle) * SPEED
             lastAngle = newAngle
+
+            ' Set new speed.
+            SPEED = getNewSpeed(SPEED)
 
             ' Update score
             score = score + 1
@@ -121,6 +124,14 @@ Partial Public Class Game
         contactPoint = New Point(centre.X + Math.Cos(cursorAngle) * ballRadius, centre.Y + Math.Sin(cursorAngle) * ballRadius)
 
         Return contactPoint
+    End Function
+
+    Private Function getNewSpeed(oldSpeed As Single) As Single
+        Dim newSpeed As Single
+
+        newSpeed = Math.Min(oldSpeed + SPEED_INCREASE, MAX_SPEED)
+
+        Return newSpeed
     End Function
 
     Private Sub Game_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown

@@ -16,7 +16,9 @@ Partial Public Class Game
     Dim BACKGROUND_COLOR As Color
     Dim PADDLE_COLOR As Color
     Dim CIRCLE_COLOR As Color
-    Dim speed As Single                 ' Basically the magnitude of the velocity vector.
+    Dim SPEED As Single                 ' Basically the magnitude of the velocity vector.
+    Dim SPEED_INCREASE As Single        ' How much the speed increases every time the ball bounces.
+    Dim MAX_SPEED As Single             ' The cap for the speed increase.
 
     ' Not 'constants'. Actual form-level variables.
     Dim lastAngle As Double             ' The last angle of the ball, measured to the positive x-axis.
@@ -38,6 +40,8 @@ Partial Public Class Game
         BALL_SIZE = 40
         RANDOM_REBOUND_RANGE = 1
         CIRCLE_RADIUS = Me.Height / 2 * 0.9
+        SPEED_INCREASE = 0.5
+        MAX_SPEED = 20
         BACKGROUND_COLOR = Color.FromArgb(2, 37, 85)
         PADDLE_COLOR = Color.FromArgb(99, 155, 42)
         CIRCLE_COLOR = Color.White
@@ -50,12 +54,12 @@ Partial Public Class Game
     ' Call create() again to restart the game.
     Private Sub create()
         ' Ball
-        speed = 10 ' Ball Speed
+        SPEED = 10 ' Ball Speed
         Dim randomAngle As Double = New Random().NextDouble() * 2 * Math.PI ' Random double between 0 and 2pi (radians).
         lastAngle = randomAngle
 
-        xVel = Math.Cos(randomAngle) * speed
-        yVel = Math.Sin(randomAngle) * speed
+        xVel = Math.Cos(randomAngle) * SPEED
+        yVel = Math.Sin(randomAngle) * SPEED
 
         ' Set size of ball
         picBall.Width = BALL_SIZE
