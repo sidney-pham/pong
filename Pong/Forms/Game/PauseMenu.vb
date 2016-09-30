@@ -1,14 +1,6 @@
 ﻿Public Class PauseMenu
-    Protected Overrides ReadOnly Property CreateParams() As CreateParams
-        Get
-            'Turn on WS_EX_TOOLWINDOW style bit
-            Dim cp As CreateParams = MyBase.CreateParams
-            cp.ExStyle = cp.ExStyle Or &H80
-            Return cp
-        End Get
-    End Property
-
     Private Sub PauseMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' I'm terribly inconsistent with choosing between the designer view and code to change properties.
         Me.FormBorderStyle = FormBorderStyle.None
         Me.WindowState = FormWindowState.Maximized
         Me.Size = Game.Size
@@ -50,7 +42,6 @@
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
         If MessageBox.Show("All progress will be lost. Are you sure?", "Pong", MessageBoxButtons.YesNo) = DialogResult.Yes Then
-            'Game.btnInvisible.PerformClick()
             GlobalVariables.closeForm = True
             Me.Close()
         End If

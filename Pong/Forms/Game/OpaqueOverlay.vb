@@ -1,4 +1,6 @@
-﻿Public Class OpaqueOverlay
+﻿' The opaque background of the pause menu. Since you can't actually have a translucent background on
+' forms and non-translucent controls, you need this hacky fix.
+Public Class OpaqueOverlay
     Protected Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             'Turn on WS_EX_TOOLWINDOW style bit

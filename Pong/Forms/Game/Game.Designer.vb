@@ -28,7 +28,6 @@ Partial Class Game
         Me.tmrGame = New System.Windows.Forms.Timer(Me.components)
         Me.lblScore = New System.Windows.Forms.Label()
         Me.picBall = New System.Windows.Forms.PictureBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblGameOver = New System.Windows.Forms.Label()
         Me.lblGameOverScore = New System.Windows.Forms.Label()
         Me.btnPlayAgain = New System.Windows.Forms.Button()
@@ -77,20 +76,12 @@ Partial Class Game
         Me.picBall.TabIndex = 5
         Me.picBall.TabStop = False
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(61, 126)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(3, 3)
-        Me.Panel1.TabIndex = 6
-        '
         'lblGameOver
         '
         Me.lblGameOver.AutoSize = True
         Me.lblGameOver.Font = New System.Drawing.Font("Microsoft YaHei UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGameOver.ForeColor = System.Drawing.Color.White
-        Me.lblGameOver.Location = New System.Drawing.Point(21, 126)
+        Me.lblGameOver.Location = New System.Drawing.Point(117, 110)
         Me.lblGameOver.Name = "lblGameOver"
         Me.lblGameOver.Size = New System.Drawing.Size(593, 128)
         Me.lblGameOver.TabIndex = 7
@@ -149,7 +140,6 @@ Partial Class Game
         Me.Controls.Add(Me.btnPlayAgain)
         Me.Controls.Add(Me.lblGameOverScore)
         Me.Controls.Add(Me.lblGameOver)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.picBall)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.btnPause)
@@ -168,7 +158,6 @@ Partial Class Game
     Friend WithEvents picBall As PictureBox
     Public WithEvents tmrGame As Timer
     Public WithEvents btnPause As Button
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents lblGameOver As Label
     Friend WithEvents lblGameOverScore As Label
     Friend WithEvents btnPlayAgain As Button

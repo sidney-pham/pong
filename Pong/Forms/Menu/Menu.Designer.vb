@@ -94,6 +94,7 @@ Partial Class Menu
         Me.Controls.Add(Me.lblPong)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Name = "Menu"
         Me.Text = "Pong"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

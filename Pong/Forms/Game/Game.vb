@@ -6,24 +6,28 @@
 
 
 Partial Public Class Game
-    Public CENTRE_X As Double
-    Public CENTRE_Y As Double
-    Dim PADDLE_SIZE As Integer
-    Dim PADDLE_WIDTH As Integer
-    Dim BALL_SIZE As Integer
-    Dim CIRCLE_RADIUS As Integer
+    ' Declaring 'constants' without actually giving them a value. How strange.
+    Public CENTRE_X As Double           ' The x-position of the centre of the screen
+    Public CENTRE_Y As Double           ' The y-position of the centre of the screen
+    Dim PADDLE_SIZE As Integer          ' The size of the paddle in degrees. Not radians, because Microsoft is ridiculously inconsistent, and has sweepAngle in degrees.
+    Dim PADDLE_WIDTH As Integer         ' The thickness of the paddle in pixels.
+    Dim BALL_SIZE As Integer            ' The diameter of the ball in pixels.
+    Dim CIRCLE_RADIUS As Integer        ' The radius of the circle in pixels.
     Dim BACKGROUND_COLOR As Color
     Dim PADDLE_COLOR As Color
     Dim CIRCLE_COLOR As Color
-    Dim speed As Single
-    Dim randomAngle As Double
-    Dim xVel As Single
-    Dim yVel As Single
-    Dim score As Integer
-    Dim gameOver As Boolean = False
+    Dim speed As Single                 ' Basically the magnitude of the velocity vector.
 
-    Dim cursorAngle As Double
+    ' Not 'constants'. Actual form-level variables.
+    Dim lastAngle As Double             ' The last angle of the ball, measured to the positive x-axis.
+    Dim xVel As Single                  ' The x-velocity.
+    Dim yVel As Single                  ' The y-velocity.
+    Dim score As Integer                ' The game score.
+    Dim RANDOM_REBOUND_RANGE As Double  ' Angle in radians indicating the possible range of angles of deflection. E.g. 1 means the ball can rebound up to 0.5 radians up from the normal and 0.5 down.
+    Dim gameOver As Boolean = False     ' Is the damn game over yet?
+    Dim cursorAngle As Double           ' What angle is formed at the origin (centre of the screen) by the positive x-axis and the mouse cursor??
 
+    ' Run once on form load.
     Private Sub preload()
         ' Basically constants. Can't initialise constants at the very top because form hasn't loaded yet.
         ' Everything will be a variable, for consistency. (Who needs constants?)
@@ -32,20 +36,23 @@ Partial Public Class Game
         PADDLE_SIZE = 40
         PADDLE_WIDTH = 15
         BALL_SIZE = 40
+        RANDOM_REBOUND_RANGE = 1
         CIRCLE_RADIUS = Me.Height / 2 * 0.9
         BACKGROUND_COLOR = Color.FromArgb(2, 37, 85)
         PADDLE_COLOR = Color.FromArgb(99, 155, 42)
         CIRCLE_COLOR = Color.White
-        '79, 133, 208
 
         Me.BackColor = BACKGROUND_COLOR
         btnPause.Location = New Point(30, 30)
     End Sub
 
+    ' Run after preload() once.
+    ' Call create() again to restart the game.
     Private Sub create()
         ' Ball
         speed = 10 ' Ball Speed
-        randomAngle = New Random().NextDouble() * 2 * Math.PI ' Random double between 0 and 2pi.
+        Dim randomAngle As Double = New Random().NextDouble() * 2 * Math.PI ' Random double between 0 and 2pi (radians).
+        lastAngle = randomAngle
 
         xVel = Math.Cos(randomAngle) * speed
         yVel = Math.Sin(randomAngle) * speed
@@ -94,6 +101,7 @@ Partial Public Class Game
         gameOver = False
     End Sub
 
+    ' update() is run every timer tick.
     Private Sub update()
         moveBall()
         drawPaddle()

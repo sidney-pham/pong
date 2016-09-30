@@ -80,6 +80,22 @@ Public Module modHelpers
         Return sb.ToString()
     End Function
 
+    Public Function randomNumber(MaxNumber As Double, Optional MinNumber As Double = 0) As Double
+        'initialize random number generator
+        Dim r As New Random(System.DateTime.Now.Millisecond)
+
+        'if passed incorrect arguments, swap them
+        'can also throw exception or return 0
+
+        If MinNumber > MaxNumber Then
+            Dim t As Integer = MinNumber
+            MinNumber = MaxNumber
+            MaxNumber = t
+        End If
+
+        Return r.NextDouble() * (MaxNumber - MinNumber) + MinNumber
+    End Function
+
     ' -------------------- GAME HELPERS -----------------------
     ' In an imaginary circle, gets the angle subtended at the origin (Game.CENTRE_X, GAME.CENTRE_Y) 
     ' by the arc formed by the mouse's position and the intersection of the circle and the positive x-axis.
