@@ -21,6 +21,10 @@
         ' btnHome
         btnHome.Top = Me.Height - btnHome.Height - 40
         btnHome.Left = 40
+
+        ' btnSound
+        btnSound.Top = btnHome.Top
+        btnSound.Left = Me.Width - btnSound.Width - 40
     End Sub
 
     Private Sub btnResume_Click(sender As Object, e As EventArgs) Handles btnResume.Click
@@ -43,7 +47,19 @@
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
         If MessageBox.Show("All progress will be lost. Are you sure?", "Pong", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             GlobalVariables.closeForm = True
+            My.Computer.Audio.Stop()
             Me.Close()
+        End If
+    End Sub
+
+    Private Sub btnSound_Click(sender As Object, e As EventArgs) Handles btnSound.Click
+        GlobalVariables.gameMusic = Not GlobalVariables.gameMusic
+        If GlobalVariables.gameMusic Then
+            btnSound.Text = "Sound: On"
+            My.Computer.Audio.Play(My.Resources.Tetris, AudioPlayMode.BackgroundLoop)
+        Else
+            btnSound.Text = "Sound: Off"
+            My.Computer.Audio.Stop()
         End If
     End Sub
 End Class

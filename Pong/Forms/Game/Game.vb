@@ -28,6 +28,7 @@ Partial Public Class Game
     Dim RANDOM_REBOUND_RANGE As Double  ' Angle in radians indicating the possible range of angles of deflection. E.g. 1 means the ball can rebound up to 0.5 radians up from the normal and 0.5 down.
     Dim gameOver As Boolean = False     ' Is the damn game over yet?
     Dim cursorAngle As Double           ' What angle is formed at the origin (centre of the screen) by the positive x-axis and the mouse cursor??
+    Dim endSoundPlayed As Boolean       ' :(
 
     ' Run once on form load.
     Private Sub preload()
@@ -48,6 +49,9 @@ Partial Public Class Game
 
         Me.BackColor = BACKGROUND_COLOR
         btnPause.Location = New Point(30, 30)
+
+        ' Play music.
+        My.Computer.Audio.Play(My.Resources.Tetris, AudioPlayMode.BackgroundLoop)
     End Sub
 
     ' Run after preload() once.
@@ -103,6 +107,9 @@ Partial Public Class Game
         lblScore.Show()
 
         gameOver = False
+
+        ' Just ignore this. I'm very sad this is here.
+        endSoundPlayed = False
     End Sub
 
     ' update() is run every timer tick.

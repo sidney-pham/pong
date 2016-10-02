@@ -53,6 +53,11 @@ Partial Public Class Game
 
         ' Check if the paddle is in contact with the ball
         If path.IsVisible(point) Then
+            ' Play sound
+            If GlobalVariables.gameMusic Then
+                PlaySound(My.Resources.Hit_Hurt38)
+            End If
+
             ' Get the angle to the positive x-axis of the collision point (i'm calling it the radius, too bad..)
             Dim angleRadius As Double = Math.Atan2(point.Y - CENTRE_Y, point.X - CENTRE_X)
             ' Normalise atan2's results to be like normal maths.
@@ -94,6 +99,15 @@ Partial Public Class Game
 
     Private Sub endGame()
         gameOver = True
+
+        ' Play sound
+        If Not endSoundPlayed Then
+            If GlobalVariables.gameMusic Then
+                PlaySound(My.Resources.Laser_Shoot5)
+            End If
+            endSoundPlayed = True
+        End If
+
         lblScore.Hide()
         lblGameOver.Show()
         lblGameOverScore.Text = "Score: " & score
@@ -163,6 +177,7 @@ Partial Public Class Game
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
+        My.Computer.Audio.Stop()
         Pong.Menu.Show()
         Me.Close()
     End Sub

@@ -25,6 +25,7 @@ Partial Class PauseMenu
         Me.btnResume = New System.Windows.Forms.Button()
         Me.lblPaused = New System.Windows.Forms.Label()
         Me.btnHome = New System.Windows.Forms.Button()
+        Me.btnSound = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnResume
@@ -70,11 +71,28 @@ Partial Class PauseMenu
         Me.btnHome.Text = "🏠"
         Me.btnHome.UseVisualStyleBackColor = False
         '
+        'btnSound
+        '
+        Me.btnSound.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnSound.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.btnSound.FlatAppearance.BorderSize = 0
+        Me.btnSound.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSound.Font = New System.Drawing.Font("Century Gothic", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSound.ForeColor = System.Drawing.Color.White
+        Me.btnSound.Location = New System.Drawing.Point(525, 319)
+        Me.btnSound.Name = "btnSound"
+        Me.btnSound.Size = New System.Drawing.Size(205, 75)
+        Me.btnSound.TabIndex = 6
+        Me.btnSound.TabStop = False
+        Me.btnSound.Text = "Sound: On"
+        Me.btnSound.UseVisualStyleBackColor = False
+        '
         'PauseMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(769, 406)
+        Me.Controls.Add(Me.btnSound)
         Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.lblPaused)
         Me.Controls.Add(Me.btnResume)
@@ -90,4 +108,5 @@ Partial Class PauseMenu
     Friend WithEvents btnResume As Button
     Friend WithEvents lblPaused As Label
     Friend WithEvents btnHome As Button
+    Friend WithEvents btnSound As Button
 End Class
